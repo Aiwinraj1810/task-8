@@ -1,0 +1,46 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { CTable, CTableHead, CTableRow, CTableHeaderCell, CTableDataCell, CTableBody } from '@coreui/react';
+
+const ContentDetails = () => {
+  const [imageDetails, setImageDetails] = useState([]);
+
+
+  useEffect(() => {
+    // Fetch image details from the JSON server
+    axios.get('http://localhost:3031/e-learn')
+      .then(response => {
+        setImageDetails(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching image details:', error);
+        // You can handle errors here
+      });
+  }, []); // Empty dependency array ensures the effect runs only once after the component mounts
+
+  return (
+    <div>
+      <CTable>
+        <CTableHead>
+          <CTableRow>
+            <CTableHeaderCell scope="col">id</CTableHeaderCell>
+            <CTableHeaderCell scope="col">Image Name</CTableHeaderCell>
+            <CTableHeaderCell scope="col">Link</CTableHeaderCell>
+            
+          </CTableRow>
+        </CTableHead>
+        <CTableBody>
+          {imageDetails.map((image, index) => (
+            <CTableRow key={index}>
+              <CTableHeaderCell scope="row">{index + 1}</CTableHeaderCell>
+              <CTableDataCell>{image.course}</CTableDataCell>
+              <CTableDataCell>{image.imgLink}</CTableDataCell>
+            </CTableRow>
+          ))}
+        </CTableBody>
+      </CTable>
+    </div>
+  );
+}
+
+export default ContentDetails;

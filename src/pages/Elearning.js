@@ -1,0 +1,289 @@
+import React, { useState } from 'react';
+import { CFormInput, CFormSelect, CInputGroup, CInputGroupText, CFormSwitch, CButton, CContainer, CNav,CNavItem,CTabPane,CTabContent,CNavLink } from '@coreui/react';
+import UploadMedia from '../components/UploadMedia.js';
+import ContentDetails from '../components/ContentDetails.js';
+import axios from 'axios';
+import '../styles/formDesign.css';
+
+import DragandDrop from '../components/DragandDrop.js';
+import FileInput from '../components/FileInput.js';
+
+const Elearning = () => {
+
+  const [activeKey, setActiveKey] = useState(1)
+  const [subTab, setSubTab] = useState(1)
+  const [formData, setFormData] = useState({
+    course: '',
+    courseCode: '',
+    category: '',
+    trainingContent: '',
+    certificate: '',
+    credits: '',
+    score: '',
+    hours: '',
+    minutes: '',
+    creditVisibility: false,
+    scoreReview: false,
+    imgLink : ''
+  });
+
+  // const handleImageUrlUpdate = (url) => {
+  //   setFormData({ ...formData, imgLink: url }); // Update imgLink state in the parent component
+  // };
+
+  const [secureUrl, setSecureUrl] = useState('');
+
+  const handleImageUrlUpdate = (url) => {
+    setSecureUrl(url); // Update secureUrl state
+    setFormData({ ...formData, imgLink: url }); // Update imgLink state in the formData
+  };
+
+
+  let nextId = localStorage.getItem('nextId') || 0;
+  
+  const handleCreditVisibilityChange = (e) => {
+    setFormData({ ...formData, creditVisibility: e.target.checked });
+    
+  };
+  const handlescoreReviewChange = (e) => {
+    
+    setFormData({ ...formData, scoreReview: e.target.checked });
+  };
+  const [validated, setValidated] = useState(false);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  
+    const form = event.currentTarget;
+  
+    // Check if all required fields are filled
+    const requiredFields = form.querySelectorAll('[required]');
+    let allFieldsFilled = true;
+    requiredFields.forEach(field => {
+      if (!field.value) {
+        allFieldsFilled = false;
+        return;
+      }
+    });
+  
+    // If any required field is empty, show alert
+    if (!allFieldsFilled) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+  
+    if (form.checkValidity() === false) {
+      event.stopPropagation();
+    }
+    setValidated(true);
+   
+  
+    let newId = nextId++;
+    localStorage.setItem('nextId', nextId);
+    const formDataWithId = { ...formData, id: newId };
+    axios.post('http://localhost:3031/e-learn', formDataWithId)
+      .then(response => {
+        alert('Data stored');
+        console.log('Data saved successfully:', response.data);
+        setFormData({
+          course: '',
+          courseCode: '',
+          category: '',
+          trainingContent: '',
+          certificate: '',
+          credits: '',
+          score: '',
+          hours: '',
+          minutes: '',
+          creditVisibility: false,
+          scoreReview: false,
+          imgLink : ''
+        });
+        setActiveKey(2)
+      })
+      .catch(error => {
+        console.error('Error saving data:', error);
+        alert('An error occurred while saving data. Please try again.');
+      });
+  };
+
+
+
+  return (
+    
+        <>
+        <h1>E-learn</h1>
+          <CNav variant="tabs">
+            <CNavItem>
+              <CNavLink
+                href="#"
+                active={activeKey === 1}
+                onClick={() => setActiveKey(1)}
+              >
+                Activities
+              </CNavLink>
+            </CNavItem>
+            <CNavItem>
+              <CNavLink
+                href="#"
+                active={activeKey === 2}
+                onClick={() => setActiveKey(2)}
+              >
+                Add content
+              </CNavLink>
+            </CNavItem>
+
+          </CNav>
+          <CTabContent>
+            <CTabPane visible={activeKey === 1}>
+            <form onSubmit={handleSubmit} noValidate validated={validated}>
+
+                  <CContainer className='container' key="activities-form">
+                    <CContainer className='tab-content-container'>
+                      <CContainer className='section'>
+                        <label htmlFor="course">Course :</label>
+                        <CFormInput type="text" id="course" floatingClassName="mb-3" floatingLabel="" placeholder="Enter course" onChange={e => setFormData({...formData, course: e.target.value})} required />
+                      </CContainer>
+                      <CContainer className='section'>
+                        <label htmlFor="courseCode">Course code :</label>
+                        <CFormInput type="text" id="courseCode" floatingClassName="mb-3" floatingLabel="" placeholder="Course code" onChange={e => setFormData({...formData, courseCode: e.target.value})} required />
+                      </CContainer>
+                    </CContainer>
+
+                    <CContainer className='tab-content-container'>
+                      <CContainer className='section'>
+                        <label htmlFor="categories">Categories :</label>
+                        <CFormSelect id="categories" onChange={e => setFormData({...formData, category: e.target.value})} required>
+                          <option value="">Select categories</option>
+                          <option value="c1">c1</option>
+                          <option value="c2">c2</option>
+                          <option value="c3">c3</option>
+                        </CFormSelect>
+                      </CContainer>
+                      <CContainer className="section">
+                        <label htmlFor="trainingContent">Training content :</label>
+                        <CFormSelect id="trainingContent" onChange={e => setFormData({...formData, trainingContent: e.target.value})} required>
+                          <option value="">Select training content</option>
+                          <option value="tc1">tc1</option>
+                          <option value="tc2">tc2</option>
+                          <option value="tc3">tc3</option>
+                        </CFormSelect>
+                      </CContainer>
+                     
+                      <CContainer className="section">
+                        <label htmlFor="certificate">Certificate :</label>
+                        <CFormSelect id="certificate" onChange={e => setFormData({...formData, certificate: e.target.value})} required>
+                          <option value="">Select certificate</option>
+                          <option value="cr1">cr1</option>
+                          <option value="cr2">cr2</option>
+                          <option value="cr3">cr3</option>
+                        </CFormSelect>
+                      </CContainer>
+
+                      <CContainer className="img-section">
+                        <FileInput onImageUrlUpdate={handleImageUrlUpdate} />
+                        {/* Display the secure URL */}
+                        {secureUrl && 
+                        <input style={{display:'none'}} type='text' value={secureUrl} disabled /> 
+                        }
+                
+                      </CContainer>
+
+
+                      <CContainer className="section">
+                        <label htmlFor="credits">Credits :</label>
+                        <CFormInput type="text" id="credits" floatingClassName="mb-3" floatingLabel="" placeholder="" onChange={e => setFormData({...formData, credits: e.target.value})} required />
+                      </CContainer>
+                      <CContainer className="section" style={{ display: 'flex', flexDirection: 'column' }}>
+                        <CFormSwitch
+                          label="creditVisibility"
+                          id="creditVisibility"
+                          onChange={handleCreditVisibilityChange}
+                          checked={formData.creditVisibility}
+                          required
+                        />
+                          </CContainer>
+
+                      <CContainer className="section">
+                        <label htmlFor="score">Score :</label>
+                        <CFormInput type="text" id="score" floatingClassName="mb-3" floatingLabel="" placeholder="" onChange={e => setFormData({...formData, score: e.target.value})} required />
+                      </CContainer>
+                        <CContainer>
+
+                        <CFormSwitch
+                          label="Score review"
+                          id="scoreReview"
+                          onChange={handlescoreReviewChange}
+                          checked={formData.scoreReview}
+                          required
+                        />
+                        </CContainer>
+                      
+                        
+
+
+
+                      <CContainer className="section">
+                        <label htmlFor="hours">Total time :</label>
+                        <CInputGroup>
+                          <CInputGroupText>Hours and minutes</CInputGroupText>
+                          <CFormInput id="hours" aria-label="Hours" onChange={e => setFormData({...formData, hours: e.target.value})} required />
+                          <CFormInput id="minutes" aria-label="Minutes" onChange={e => setFormData({...formData, minutes: e.target.value})}  />
+                        </CInputGroup>
+                      </CContainer>
+                    </CContainer>
+                  </CContainer>
+                    <CContainer style={{textAlign:'right'}}>
+
+                  <CButton color="primary" type="submit">Submit</CButton>
+                    </CContainer>
+            </form>
+            </CTabPane>
+            <CTabPane visible={activeKey === 2}>
+              <CContainer style={{marginTop:20}}>
+
+                  <CNav variant="pills" layout="fill">
+                        <CNavItem>
+                        <CNavLink
+                          href="#"
+                          active={subTab === 1}
+                          onClick={() => setSubTab(1)}
+                        >
+                          Upload
+                        </CNavLink>
+                      </CNavItem>
+                      <CNavItem>
+                        <CNavLink
+                          href="#"
+                          active={subTab === 2}
+                          onClick={() => setSubTab(2)}
+                        >
+                          Select from list
+                        </CNavLink>
+                      </CNavItem>
+                  </CNav>
+              </CContainer>
+                  <CTabContent>
+                    <CTabPane visible={subTab===1}>
+
+                      <DragandDrop/>
+                      <FileInput onImageUrlUpdate={handleImageUrlUpdate} />
+                      
+                    </CTabPane>
+                    <CTabPane visible={subTab===2}>
+
+                      <ContentDetails />
+
+                    </CTabPane>
+                  </CTabContent>
+            </CTabPane>
+            
+          </CTabContent>
+        </>
+      )
+    }
+    
+ 
+
+
+export default Elearning;

@@ -1,0 +1,81 @@
+import React, { useState } from 'react';
+import { CFormInput, CButton } from '@coreui/react';
+
+const AddContent = () => {
+  const [imagePreview, setImagePreview] = useState(null);
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    handleFile(file);
+  };
+
+  const handleFile = (file) => {
+    if (file) {
+      // Update the image preview
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+    } else {
+      setImagePreview(null);
+    }
+  };
+
+  const handleRemoveImage = () => {
+    // Remove the image preview
+    setImagePreview(null);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    const file = e.dataTransfer.files[0];
+    handleFile(file);
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+  };
+
+  return (
+    <div
+      style={{ border: '2px dashed #ccc', padding: '20px', textAlign: 'center', position: 'relative' }}
+      onDrop={handleDrop}
+      onDragOver={handleDragOver}
+    >
+      <div style={{ position: 'absolute', top: '0', left: '0', right: '0', bottom: '0' }}>
+        {imagePreview && (
+          <img
+            src={imagePreview}
+            alt="Preview"
+            style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+          />
+        )}
+      </div>
+      {!imagePreview && (
+        <div>
+          <p>Drag and drop your file here, or</p>
+          <CFormInput
+            type="file"
+            size="lg"
+            id="formFileLg"
+            label="Large file input example"
+            onChange={handleFileChange}
+            style={{ marginTop: '10px' }}
+          />
+        </div>
+      )}
+      {imagePreview && (
+        <CButton
+          color="danger"
+          onClick={handleRemoveImage}
+          style={{ position: 'absolute', top: '10px', right: '10px' }}
+        >
+          Remove Image
+        </CButton>
+      )}
+    </div>
+  );
+};
+
+export default AddContent;

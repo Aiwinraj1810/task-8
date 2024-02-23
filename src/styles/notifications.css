@@ -1,0 +1,14 @@
+.not-main{
+    display: grid;
+    grid-template-columns:repeat(3,33.3%);
+     gap:10px;
+     margin-top: 5%;
+}
+.not-header{
+    display: flex;
+    justify-content: center;
+}
+.not-main div{
+    border: 1px solid black;
+    border-radius: 10px;
+}

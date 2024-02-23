@@ -1,0 +1,69 @@
+import React , {useState} from 'react';
+import { CFormInput, CContainer, CButton} from '@coreui/react';
+const FileInput = ({ onImageUrlUpdate }) => {
+ const [image, setImage] = useState('')
+ const [secureUrl, setSecureUrl] = useState('');
+ const [previewUrl, setPreviewUrl] = useState('');
+
+
+ const uploadImage = (e) => {
+  e.preventDefault();
+  if (!image) {
+    console.error("No image selected");
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append("file", image);
+  formData.append("upload_preset", "xckb82k7"); 
+  formData.append("cloud_name", "dur23cis9");
+
+  fetch("https://api.cloudinary.com/v1_1/dur23cis9/image/upload", {
+    method: 'POST',
+    body: formData
+  })
+  .then((res) => {
+    if (!res.ok) {
+      throw new Error("Failed to upload image");
+    }
+    return res.json();
+  })
+  .then((data) => {
+    // Check if the response contains the secure_url property
+    if (data && data.secure_url) {
+      console.log("Secure URL:", data.secure_url);
+      setSecureUrl(data.secure_url); // Save secure_url in state
+      onImageUrlUpdate(data.secure_url);
+    } else {
+      throw new Error("Secure URL not found in response");
+    }
+  })
+  .catch((error) => {
+    console.error("Error uploading image:", error);
+  });
+};
+const handleRemoveImage = () => {
+  setImage('');
+  setSecureUrl('');
+};
+  
+  return (
+    <CContainer>
+      <CFormInput type='file' onChange={(e)=>{setImage(e.target.files[0])}}/>
+      <CContainer style={{display:'flex', marginTop:10}}>
+      {image && (
+        <CContainer style={{ marginTop: 10, display:'flex', flexDirection:'row', gap:10}}>
+          <CContainer>
+            <img src={image
+            } alt='preview' style={{width:100}} />
+          </CContainer>
+          <CButton onClick={uploadImage}>Submit</CButton>
+          <CButton onClick={handleRemoveImage}>Remove</CButton>
+        </CContainer>
+      )}
+      </CContainer>
+    </CContainer>
+  );
+};
+
+export default FileInput;

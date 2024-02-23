@@ -1,0 +1,84 @@
+{
+  "Enrollment": [
+    {
+      "id": "5331",
+      "course": "",
+      "courseId": "",
+      "fontSize": "",
+      "category": "",
+      "trainingContent": "",
+      "certificate": "",
+      "file": "",
+      "credits": "",
+      "creditVisibility": false,
+      "dropClass": false,
+      "activityReview": false,
+      "score": "",
+      "hours": "",
+      "minutes": ""
+    },
+    {
+      "id": "897c",
+      "course": "",
+      "courseId": "",
+      "fontSize": "",
+      "category": "",
+      "trainingContent": "",
+      "certificate": "",
+      "file": "",
+      "credits": "",
+      "creditVisibility": false,
+      "dropClass": false,
+      "activityReview": false,
+      "score": "",
+      "hours": "",
+      "minutes": ""
+    },
+    {
+      "id": "b9d8",
+      "course": "Mphil",
+      "courseId": "112",
+      "fontSize": "",
+      "category": "CC2",
+      "trainingContent": "CRT2",
+      "certificate": "CeCR3",
+      "file": "",
+      "credits": "12",
+      "creditVisibility": false,
+      "dropClass": false,
+      "activityReview": true,
+      "score": "",
+      "hours": "2",
+      "minutes": "2",
+      "description": "mphil new",
+      "enrollmentID": "asdasdasd"
+    },
+    {
+      "id": "412d",
+      "course": "Mphil",
+      "courseId": "113",
+      "fontSize": "",
+      "category": "CC3",
+      "trainingContent": "CRT2",
+      "certificate": "CeCR1",
+      "file": "",
+      "credits": "12",
+      "creditVisibility": false,
+      "dropClass": false,
+      "activityReview": true,
+      "score": "",
+      "hours": "2",
+      "minutes": "2",
+      "enrollmentID": "asdasdasd",
+      "description": "newTry2"
+    }
+  ],
+  "imageDetails": [
+    {
+      "id": "2563",
+      "name": "bg3.jpg",
+      "size": 1727325,
+      "dimensions": "undefinedxundefined"
+    }
+  ]
+}

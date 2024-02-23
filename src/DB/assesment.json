@@ -1,0 +1,221 @@
+{
+  "activities": [
+    {
+      "id": "4280"
+    },
+    {
+      "id": "1734"
+    },
+    {
+      "id": "d673",
+      "assessmentId": "12",
+      "assessmentCode": "1",
+      "category": "Medium",
+      "trainingContent": "Large",
+      "certificate": "Large",
+      "credits": "1231",
+      "score": "weqwe",
+      "hours": "",
+      "minutes": "",
+      "creditVisibility": false,
+      "scoreVisibility": true
+    }
+  ],
+  "settings": [
+    {
+      "id": "ea1a",
+      "passingToggle": true,
+      "passingMarks": "20",
+      "randomizeQuestions": true,
+      "displayQuestions": "listView",
+      "enableOptionByToggling1": true,
+      "attempts": "12",
+      "enableOptionByToggling2": true,
+      "quizLengthHours": "1",
+      "quizLengthMinutes": "2"
+    },
+    {
+      "id": "c181",
+      "passingToggle": false,
+      "passingMarks": "",
+      "randomizeQuestions": false,
+      "displayQuestions": "listView",
+      "enableOptionByToggling1": false,
+      "attempts": "",
+      "enableOptionByToggling2": false,
+      "quizLengthHours": "",
+      "quizLengthMinutes": ""
+    },
+    {
+      "id": "7fa3",
+      "passingToggle": false,
+      "passingMarks": "",
+      "randomizeQuestions": false,
+      "displayQuestions": "listView",
+      "enableOptionByToggling1": false,
+      "attempts": "",
+      "enableOptionByToggling2": false,
+      "quizLengthHours": "",
+      "quizLengthMinutes": ""
+    },
+    {
+      "id": "8d1e",
+      "passingToggle": false,
+      "passingMarks": "",
+      "randomizeQuestions": false,
+      "displayQuestions": "listView",
+      "enableOptionByToggling1": false,
+      "attempts": "",
+      "enableOptionByToggling2": false,
+      "quizLengthHours": "",
+      "quizLengthMinutes": "",
+      "postQuiz": ""
+    },
+    {
+      "id": "31c1",
+      "passingToggle": false,
+      "passingMarks": "",
+      "randomizeQuestions": false,
+      "displayQuestions": "listView",
+      "enableOptionByToggling1": false,
+      "attempts": "",
+      "enableOptionByToggling2": false,
+      "quizLengthHours": "",
+      "quizLengthMinutes": "",
+      "postQuiz": ""
+    },
+    {
+      "id": "1707",
+      "passingToggle": false,
+      "passingMarks": "",
+      "randomizeQuestions": false,
+      "displayQuestions": "listView",
+      "enableOptionByToggling1": false,
+      "attempts": "",
+      "enableOptionByToggling2": false,
+      "quizLengthHours": "",
+      "quizLengthMinutes": "",
+      "postQuiz": ""
+    },
+    {
+      "id": "00fc",
+      "passingToggle": false,
+      "passingMarks": "",
+      "randomizeQuestions": false,
+      "displayQuestions": "listView",
+      "enableOptionByToggling1": false,
+      "attempts": "",
+      "enableOptionByToggling2": false,
+      "quizLengthHours": "",
+      "quizLengthMinutes": "",
+      "postQuiz": ""
+    },
+    {
+      "id": "b89e",
+      "passingToggle": false,
+      "passingMarks": "",
+      "randomizeQuestions": false,
+      "displayQuestions": "listView",
+      "enableOptionByToggling1": false,
+      "attempts": "1",
+      "enableOptionByToggling2": false,
+      "quizLengthHours": "1",
+      "quizLengthMinutes": "",
+      "postQuiz": ""
+    }
+  ],
+  "questions": [
+    {
+      "id": "cc72"
+    },
+    {
+      "id": "c188"
+    },
+    {
+      "id": "6989"
+    },
+    {
+      "id": 2,
+      "question": "",
+      "questionType": "",
+      "score": "",
+      "answer": ""
+    },
+    {
+      "id": 3,
+      "question": "",
+      "questionType": "",
+      "score": "",
+      "answer": ""
+    },
+    {
+      "id": 4,
+      "question": "",
+      "questionType": "",
+      "score": "",
+      "answer": ""
+    },
+    {
+      "id": "d11b",
+      "question": "hello",
+      "questionType": "",
+      "score": "",
+      "answer": ""
+    },
+    {
+      "id": "0087",
+      "question": "VAT",
+      "questionType": "MCQ",
+      "score": "5",
+      "answer": "Value Added Tax"
+    },
+    {
+      "id": "43b4",
+      "question": "",
+      "questionType": "",
+      "score": "",
+      "answer": ""
+    },
+    {
+      "id": "b975",
+      "question": "newQ",
+      "questionType": "MCQ",
+      "options": "4",
+      "score": "5",
+      "answer": "3"
+    },
+    {
+      "id": "39d1",
+      "question": "2",
+      "questionType": "MCQ",
+      "option1": "1",
+      "option2": "2",
+      "option3": "3",
+      "option4": "4",
+      "score": "1",
+      "answer": "1"
+    },
+    {
+      "id": "9f6e",
+      "question": "21",
+      "questionType": "Fill in the blanks",
+      "option1": "1",
+      "option2": "2",
+      "option3": "3",
+      "option4": "4",
+      "score": "5",
+      "answer": "2211"
+    },
+    {
+      "id": "7859",
+      "question": "31",
+      "questionType": "Fill in the blanks",
+      "option1": "",
+      "option2": "",
+      "option3": "",
+      "option4": "",
+      "score": "5",
+      "answer": "newAns"
+    }
+  ]
+}

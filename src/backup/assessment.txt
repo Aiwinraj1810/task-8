@@ -1,0 +1,163 @@
+import React from 'react'
+import Tabs from '../components/Tabs';
+import Activities from '../components/tabs/Activities.js'; // Import the Activities component
+import {  CFormInput, CFormSelect, CInputGroup, CInputGroupText, CFormSwitch, CButton, CFormCheck } from '@coreui/react';
+import TextBox from '../components/TextBox.js';
+import QuestionsInput from '../components/QuestionsInput.js';
+
+
+
+
+const Assesment = () => {
+  const tabComponents = [
+    { 
+      component: <Activities />, 
+      title: 'Activities', 
+      formInputs: {
+        email: <CFormInput type="email" id="email" floatingClassName="mb-3" floatingLabel="" placeholder="name@example.com" />,
+        password: <CFormInput type="password" id="password" floatingClassName="mb-3" floatingLabel="" placeholder="Password" />,
+        textArea: <TextBox />,
+        categories: (
+          <CFormSelect>
+            <option>Select categories</option>
+            <option>Small</option>
+            <option>Medium</option>
+            <option>Large</option>
+          </CFormSelect>
+          
+        ),
+        training_content:
+              <CFormSelect>
+              <option>Select categories</option>
+                <option >Small</option>
+                <option >Medium</option>
+                <option >Large</option>
+              </CFormSelect>,
+              certificates:
+              <CFormSelect>
+              <option>Select categories</option>
+                <option >Small</option>
+                <option >Medium</option>
+                <option >Large</option>
+              </CFormSelect>,
+              fileUpload:
+              <CFormInput 
+              type="file" 
+              size="sm" 
+              id="formFileSm" 
+              label="Assesment image"
+              accept=".jpg, .jpeg, .png, .pdf" // Restrict file types
+
+               />,
+               credits:
+               <CFormInput type="text" id="text" floatingClassName="mb-3" floatingLabel="Credits" placeholder="" />,
+               score:
+               <CFormInput type="text" id="text" floatingClassName="mb-3" floatingLabel="Score" placeholder="" />,
+               timeData:
+               <CInputGroup>
+                    <CInputGroupText>Hours and minutes</CInputGroupText>
+                    <CFormInput aria-label="Hours" />
+                    <CFormInput aria-label="Minutes" />
+                </CInputGroup>,
+                quizType :
+                <CFormCheck type="radio" name="flexRadioDefault" id="flexRadioDefault1" label="Default radio"/>,
+                surveyType:
+                
+<               CFormCheck type="radio" name="flexRadioDefault" id="flexRadioDefault2" label="Checked radio" defaultChecked/>,
+
+                creditVisibility:
+                <CFormSwitch label="creditVisibility" id="formSwitchCheckDefault"/>,
+                scoreVisibility:
+                <CFormSwitch label=" scoreVisibility" id="formSwitchCheckDefault"/>,
+                nextButton:
+                <CButton color="primary">Next</CButton>,
+      }
+    },
+
+    // Add more tab components as needed
+    {
+      // Second tab
+      title: 'Settings', 
+      formInputs: {
+        email:
+        <form>
+        <div>
+
+        <div style={{display:'flex'}}>
+          <span>Enter passing marks : </span>
+          <CFormSwitch label="Toggle" id="formSwitchCheckDefault"/>
+          <CFormInput type="text" id="text" floatingClassName="mb-3" floatingLabel="" placeholder="Enter marks" />
+        </div> 
+
+        <div>
+          <span>Randomise questions : </span>
+          <CFormSwitch label="Toggle" id="formSwitchCheckDefault"/>
+        </div>
+        <div style={{display:'flex'}}>
+          <span>Display questions : </span>
+          <CFormCheck type="radio" name="flexRadioDefault1" id="flexRadioDefault1" label="Slide view"/>
+          <CFormCheck type="radio" name="flexRadioDefault1" id="flexRadioDefault2" label="List view" defaultChecked/>
+        </div>
+        <div style={{display:'flex'}}>
+          <span>Enable option by toggling : </span>
+          <CFormSwitch label="Toggle" id="formSwitchCheckDefault"/>
+        </div>
+        <div style={{display:'flex'}}>
+          <span>No of attempts : </span>
+          <CFormInput type="text" id="text" floatingClassName="mb-3" floatingLabel="" placeholder="Enter here" />
+        </div>
+        <div style={{display:'flex'}}>
+          <span>Enable option by toggling : </span>
+          <CFormSwitch label="Toggle" id="formSwitchCheckDefault"/>
+        </div>
+        <div style={{display:'flex'}}>
+          <span>Display questions : </span>
+          <CFormCheck type="radio" name="flexRadioDefault2" id="flexRadioDefault3" label="Slide view"/>
+          <CFormCheck type="radio" name="flexRadioDefault2" id="flexRadioDefault4" label="List view" defaultChecked/>
+        </div>
+        <div style={{display:'flex'}}>
+          <span>Enable option by toggling : </span>
+          <CFormSwitch label="Toggle" id="formSwitchCheckDefault"/>
+        </div>
+        <div style={{display:'flex'}}>
+          <span>Quiz length :  </span>
+          <CInputGroup>
+                    <CInputGroupText>Hours and minutes</CInputGroupText>
+                    <CFormInput aria-label="Hours" />
+                    <CFormInput aria-label="Minutes" />
+          </CInputGroup>
+        </div>
+        <CButton color="primary">Next</CButton>
+
+        {/* end of div */}
+        </div>
+
+        </form>
+      }
+    },
+    {
+      // Third tab
+      title: 'Questions', 
+      formInputs: {
+        email:
+        <form>
+        <div>
+        <QuestionsInput />
+       
+        {/* end of div */}
+        </div>
+
+        </form>
+      }
+    },
+  ];
+  return (
+    <div>
+      <h1>Assesment</h1>
+      {/* Pass the tabComponents array as the activitiesComponent prop to the Tabs component */}
+      <Tabs tabComponents={tabComponents} />
+    </div>
+  )
+}
+
+export default Assesment

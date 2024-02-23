@@ -1,0 +1,36 @@
+
+.section{
+    display: grid;
+   grid-template-columns: 30% 1fr;
+   justify-content: space-between;
+   
+}
+.assesment-section{
+  display: grid;
+  grid-template-columns: 30% 30% 40%;
+
+}
+.attempts-sec{
+  display: grid;
+ 
+  grid-template-columns: 30% 70%;
+  
+}
+
+
+.CContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+  }
+  .tab-content-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    grid-gap: 20px;
+  }  
+  .container{
+    padding: 0.5rem;
+  }
+  .btn-space{
+    text-align: right;
+  }

@@ -1,0 +1,107 @@
+{
+  "e-learn": [
+    {
+      "id": 74,
+      "course": "aswq",
+      "courseCode": "1212",
+      "category": "c3",
+      "trainingContent": "tc3",
+      "certificate": "cr2",
+      "credits": "1212",
+      "score": "11",
+      "hours": "1",
+      "minutes": "",
+      "creditVisibility": true,
+      "scoreReview": false,
+      "imgLink": "https://res.cloudinary.com/dur23cis9/image/upload/v1708686694/nsyqmzhqxiarep7gks3b.jpg"
+    },
+    {
+      "id": 75,
+      "course": "aswq",
+      "courseCode": "1212",
+      "category": "c3",
+      "trainingContent": "tc3",
+      "certificate": "cr1",
+      "credits": "1212",
+      "score": "11",
+      "hours": "1",
+      "minutes": "",
+      "creditVisibility": true,
+      "scoreReview": false,
+      "imgLink": "https://res.cloudinary.com/dur23cis9/image/upload/v1708686951/wvl10zrvi5r34ilobuib.png"
+    },
+    {
+      "id": 76,
+      "course": "MCA",
+      "courseCode": "GU001",
+      "category": "c3",
+      "trainingContent": "tc3",
+      "certificate": "cr2",
+      "credits": "14",
+      "score": "22",
+      "hours": "1",
+      "minutes": "",
+      "creditVisibility": true,
+      "scoreReview": false,
+      "imgLink": ""
+    },
+    {
+      "id": 77,
+      "course": "MCA",
+      "courseCode": "GU001",
+      "category": "c2",
+      "trainingContent": "tc3",
+      "certificate": "cr2",
+      "credits": "14",
+      "score": "22",
+      "hours": "1",
+      "minutes": "",
+      "creditVisibility": true,
+      "scoreReview": false,
+      "imgLink": "https://res.cloudinary.com/dur23cis9/image/upload/v1708688745/s9rbicvi3ytjrxoflbeu.png"
+    }
+  ],
+  
+  "courseImage": [
+    {
+      "id": "935e",
+      "path": "blob:http://localhost:3000/c2c9b275-370e-4bef-9ff5-b7f9059af754"
+    },
+    {
+      "id": "1b05",
+      "path": "blob:http://localhost:3000/7db36b04-27e2-486a-8176-a4a3b313275a"
+    }
+  ],
+  "imageDetails": [
+    {
+      "id": "c228",
+      "name": "Menu (2).png",
+      "size": 3046,
+      "dimensions": "undefinedxundefined"
+    },
+    {
+      "id": "407f",
+      "name": "rr2.png",
+      "size": 137135,
+      "dimensions": "undefinedxundefined"
+    },
+    {
+      "id": "2c1b",
+      "name": "Untitled design (1).png",
+      "size": 213444,
+      "dimensions": "undefinedxundefined"
+    },
+    {
+      "id": "4472",
+      "name": "NicePng_home-png_178841.png",
+      "size": 37972,
+      "dimensions": "undefinedxundefined"
+    },
+    {
+      "id": "775d",
+      "name": "rr2.png",
+      "size": 137135,
+      "dimensions": "undefinedxundefined"
+    }
+  ]
+}
