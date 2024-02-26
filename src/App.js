@@ -6,18 +6,17 @@ import { Routes, Route } from 'react-router-dom';
 import Classroom from './pages/Classroom';
 import Assesment from './pages/Assesment';
 import AddContent from './components/AddContent';
-import Sidebar from './components/Sidebar';
+import { CContainer } from '@coreui/react';
 
 function App() {
   return (
-    <div className="App">
-      
-
-
+    <CContainer style={{margin:0, padding:0}}>
         <Routes>
+
           <Route 
             path='/' element={<Home />}
           />
+
           <Route 
             path='/elearning' element={<Elearning />}
           />
@@ -33,7 +32,7 @@ function App() {
         </Routes>
 
        
-    </div>
+    </CContainer>
   );
 }
 

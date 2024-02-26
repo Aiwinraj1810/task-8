@@ -1,35 +1,38 @@
 // In Home.js component
 import { Link } from "react-router-dom";
+import { CContainer } from "@coreui/react";
 import '../styles/homePage.css'
+
 const Home = () => {
    
     return (
-      <div className="body">
+      <CContainer  className="body">
 
-        <div className="main-header">
+        <CContainer className="main-header">
         <h1>Welcome</h1>
-        </div>
-      <div className="main-wrapper">
-        <div className="main-section">
+        </CContainer>
+      <CContainer className="main-wrapper">
+        <CContainer className="main-section">
 
         <Link style={{textDecoration:'none'}} to='/elearning'>
-        <div className="main-grid">
+        <CContainer className="main-grid">
           <p>E-learning</p>
-        </div>
+        </CContainer>
           </Link>
         <Link style={{textDecoration:'none'}} to='/classroom'>
-        <div className="main-grid">
+        <CContainer className="main-grid">
           <p>Classroom</p>
-        </div>
+        </CContainer>
           </Link>
         <Link style={{textDecoration:'none'}} to='/assesment'>
-        <div className="main-grid">
+        <CContainer className="main-grid">
           <p>Assessment</p>
-        </div>
+        </CContainer>
           </Link>
-        </div>
-      </div>
-      </div>
+        </CContainer>
+      </CContainer>
+      </CContainer>
+   
     );
   }
 

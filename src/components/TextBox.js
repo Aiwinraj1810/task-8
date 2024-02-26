@@ -18,12 +18,7 @@ const TextBox = () => {
   return (
     <div>
        <div>
-      <CFormSelect onChange={handleFontSizeChange} value={fontSize}>
-      <option>Select font size</option>
-        <option value="12">Small</option>
-        <option value="16">Medium</option>
-        <option value="20">Large</option>
-      </CFormSelect>
+      
       <CFormTextarea
         id="exampleFormControlTextarea1"
         label="Text-box"

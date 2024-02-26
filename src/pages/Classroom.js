@@ -6,8 +6,8 @@ import SuprevisorNotifications from '../components/SuprevisorNotifications.js';
 import AdminNotifications from '../components/AdminNotifications.js';
 import '../styles/notifications.css'
 import axios from 'axios';
-import UploadMedia from '../components/UploadMedia.js';
 import DragandDrop from '../components/DragandDrop.js';
+import Sidebar from '../components/Sidebar.js'
 
 const Classroom = () => {
   const [activeKey, setActiveKey] = useState(1)
@@ -104,13 +104,18 @@ const Classroom = () => {
       });
   };
   return (
+    <CContainer style={{display:'flex',margin:0, padding:0,width:'100%'}}>
+      <CContainer style={{padding:0,width:'fit-content'}}>
+        <Sidebar />
+      </CContainer>
+
     <CContainer>
     <h1>Classroom</h1>
-    <CContainer>
-    <CNav variant="tabs">
+    <CNav variant="tabs" >
             <CNavItem>
               <CNavLink
                 href="#"
+                style={{color:'black'}}
                 active={activeKey === 1}
                 onClick={() => setActiveKey(1)}
               >
@@ -120,6 +125,7 @@ const Classroom = () => {
             <CNavItem>
               <CNavLink
                 href="#"
+                style={{color:'black'}}
                 active={activeKey === 2}
                 onClick={() => setActiveKey(2)}
               >
@@ -129,6 +135,7 @@ const Classroom = () => {
             <CNavItem>
               <CNavLink
                 href="#"
+                style={{color:'black'}}
                 active={activeKey === 3}
                 onClick={() => setActiveKey(3)}
               >
@@ -138,7 +145,7 @@ const Classroom = () => {
 
           </CNav>
 
-    <CTabContent>
+    <CTabContent style={{backgroundColor:'white'}}>
       <CTabPane visible={activeKey === 1}>
       <CContainer>
   <form >
@@ -235,24 +242,21 @@ const Classroom = () => {
       </CTabPane>
       <CTabPane visible={activeKey === 2}>
         <DragandDrop />
-        <UploadMedia />
+
       </CTabPane>
       <CTabPane visible={activeKey === 3}>
-        <div className='not-main'>
+        <CContainer className='not-main'>
           <div>
         <UserNotifications />
-
           </div>
           <div>
-
         <AdminNotifications />
           </div>
           <div>
-
         <SuprevisorNotifications />
           </div>
 
-        </div>
+        </CContainer>
       </CTabPane>
     </CTabContent>
     </CContainer>

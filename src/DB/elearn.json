@@ -29,7 +29,7 @@
       "scoreReview": false
     },
     {
-      "id": 53,
+      "id": "53",
       "course": "imgTest",
       "courseCode": "gu101",
       "category": "c1",
@@ -43,7 +43,7 @@
       "scoreReview": false
     },
     {
-      "id": 54,
+      "id": "54",
       "course": "test2",
       "courseCode": "11",
       "category": "c2",
@@ -57,7 +57,7 @@
       "scoreReview": false
     },
     {
-      "id": 55,
+      "id": "55",
       "course": "New1test2",
       "courseCode": "123",
       "category": "c1",
@@ -71,7 +71,7 @@
       "scoreReview": false
     },
     {
-      "id": 56,
+      "id": "56",
       "course": "New1test3",
       "courseCode": "123",
       "category": "c3",
@@ -86,7 +86,7 @@
       "imgLink": ""
     },
     {
-      "id": 57,
+      "id": "57",
       "course": "New1test3",
       "courseCode": "123",
       "category": "c2",
@@ -101,7 +101,7 @@
       "imgLink": "blob:http://localhost:3000/9500c8c4-0799-485b-ab5a-1014ca680f7d"
     },
     {
-      "id": 58,
+      "id": "58",
       "course": "BBM",
       "courseCode": "12345",
       "category": "c3",
@@ -116,7 +116,7 @@
       "imgLink": "blob:http://localhost:3000/47005147-31f6-48b0-a2f6-acdb8702b7ad"
     },
     {
-      "id": 59,
+      "id": "59",
       "course": "NewImgTest",
       "courseCode": "12345",
       "category": "c3",
@@ -131,7 +131,7 @@
       "imgLink": ""
     },
     {
-      "id": 60,
+      "id": "60",
       "course": "BBM",
       "courseCode": "gy6",
       "category": "c3",
@@ -146,7 +146,7 @@
       "imgLink": ""
     },
     {
-      "id": 61,
+      "id": "61",
       "course": "aswq",
       "courseCode": "tttt",
       "category": "c1",
@@ -161,7 +161,7 @@
       "imgLink": ""
     },
     {
-      "id": 62,
+      "id": "62",
       "course": "aswq",
       "courseCode": "tttt",
       "category": "c3",
@@ -176,7 +176,7 @@
       "imgLink": ""
     },
     {
-      "id": 63,
+      "id": "63",
       "course": "aswq",
       "courseCode": "tttt",
       "category": "c3",
@@ -191,7 +191,7 @@
       "imgLink": ""
     },
     {
-      "id": 64,
+      "id": "64",
       "course": "",
       "courseCode": "",
       "category": "",
@@ -206,7 +206,7 @@
       "imgLink": ""
     },
     {
-      "id": 65,
+      "id": "65",
       "course": "aswq",
       "courseCode": "tttt",
       "category": "c3",
@@ -221,7 +221,7 @@
       "imgLink": ""
     },
     {
-      "id": 66,
+      "id": "66",
       "course": "aswq",
       "courseCode": "tttt",
       "category": "c3",
@@ -236,7 +236,7 @@
       "imgLink": "https://res.cloudinary.com/dur23cis9/image/upload/v1708685248/igcmtlkzau79t8mvvulo.jpg"
     },
     {
-      "id": 67,
+      "id": "67",
       "course": "aswq",
       "courseCode": "tttt",
       "category": "c1",
@@ -251,7 +251,7 @@
       "imgLink": ""
     },
     {
-      "id": 68,
+      "id": "68",
       "course": "aswq",
       "courseCode": "1212",
       "category": "c1",
@@ -266,7 +266,7 @@
       "imgLink": ""
     },
     {
-      "id": 69,
+      "id": "69",
       "course": "",
       "courseCode": "",
       "category": "",
@@ -281,7 +281,7 @@
       "imgLink": ""
     },
     {
-      "id": 70,
+      "id": "70",
       "course": "aswq",
       "courseCode": "1212",
       "category": "c3",
@@ -296,7 +296,7 @@
       "imgLink": ""
     },
     {
-      "id": 71,
+      "id": "71",
       "course": "aswq",
       "courseCode": "1212",
       "category": "c2",
@@ -311,7 +311,7 @@
       "imgLink": ""
     },
     {
-      "id": 72,
+      "id": "72",
       "course": "",
       "courseCode": "",
       "category": "",
@@ -326,7 +326,7 @@
       "imgLink": ""
     },
     {
-      "id": 73,
+      "id": "73",
       "course": "aswq",
       "courseCode": "1212",
       "category": "c3",
@@ -341,7 +341,7 @@
       "imgLink": ""
     },
     {
-      "id": 74,
+      "id": "74",
       "course": "aswq",
       "courseCode": "1212",
       "category": "c3",
@@ -356,7 +356,7 @@
       "imgLink": "https://res.cloudinary.com/dur23cis9/image/upload/v1708686694/nsyqmzhqxiarep7gks3b.jpg"
     },
     {
-      "id": 75,
+      "id": "75",
       "course": "aswq",
       "courseCode": "1212",
       "category": "c3",
@@ -371,7 +371,7 @@
       "imgLink": "https://res.cloudinary.com/dur23cis9/image/upload/v1708686951/wvl10zrvi5r34ilobuib.png"
     },
     {
-      "id": 76,
+      "id": "76",
       "course": "MCA",
       "courseCode": "GU001",
       "category": "c3",
@@ -386,7 +386,7 @@
       "imgLink": ""
     },
     {
-      "id": 77,
+      "id": "77",
       "course": "MCA",
       "courseCode": "GU001",
       "category": "c2",
@@ -401,7 +401,7 @@
       "imgLink": "https://res.cloudinary.com/dur23cis9/image/upload/v1708688745/s9rbicvi3ytjrxoflbeu.png"
     },
     {
-      "id": 78,
+      "id": "78",
       "course": "MCA",
       "courseCode": "GU001",
       "category": "c3",
@@ -414,6 +414,26 @@
       "creditVisibility": false,
       "scoreReview": true,
       "imgLink": "https://res.cloudinary.com/dur23cis9/image/upload/v1708691420/qf3ml3j0pxu226vgqc4x.jpg"
+    },
+    {
+      "id": 79,
+      "course": "MCASun",
+      "courseCode": "GU001",
+      "category": "c1",
+      "trainingContent": "tc2",
+      "certificate": "cr2",
+      "credits": "14",
+      "score": "22",
+      "hours": "1",
+      "minutes": "",
+      "creditVisibility": true,
+      "scoreReview": false,
+      "imgLink": "https://res.cloudinary.com/dur23cis9/image/upload/v1708842682/ml5zdqe3ltoglj33gwfo.jpg",
+      "imageUrl": ""
+    },
+    {
+      "id": "16e9",
+      "imageUrl": "https://res.cloudinary.com/dur23cis9/image/upload/v1708842697/ujjn42trug59mb16i3r9.jpg"
     }
   ],
   "tempDetails": [],
@@ -457,6 +477,10 @@
       "name": "rr2.png",
       "size": 137135,
       "dimensions": "undefinedxundefined"
+    },
+    {
+      "id": "fe94",
+      "imageUrl": "https://res.cloudinary.com/dur23cis9/image/upload/v1708842487/ba3ddqu5mcvr1o2vjo0c.jpg"
     }
   ]
 }

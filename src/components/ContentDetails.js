@@ -8,7 +8,7 @@ const ContentDetails = () => {
 
   useEffect(() => {
     // Fetch image details from the JSON server
-    axios.get('http://localhost:3031/e-learn')
+    axios.get('http://localhost:3031/imageDetails')
       .then(response => {
         setImageDetails(response.data);
       })
@@ -34,7 +34,7 @@ const ContentDetails = () => {
             <CTableRow key={index}>
               <CTableHeaderCell scope="row">{index + 1}</CTableHeaderCell>
               <CTableDataCell>{image.course}</CTableDataCell>
-              <CTableDataCell>{image.imgLink}</CTableDataCell>
+              <CTableDataCell>{image.imageUrl}</CTableDataCell>
             </CTableRow>
           ))}
         </CTableBody>

@@ -1,11 +1,12 @@
 import React from 'react'
 import { useState } from 'react';
 import axios from 'axios';
-
+import FileInput from '../components/FileInput.js';
 import { CFormInput, CFormSelect, CInputGroup, CInputGroupText, CFormSwitch, CButton, CContainer, CNav,CNavItem,CTabPane,CTabContent,CNavLink, CFormCheck, CAccordion, CAccordionItem, CAccordionHeader, CAccordionBody, CForm,  } from '@coreui/react';
 import TextBox from '../components/TextBox.js';
 
 import '../styles/formDesign.css'
+import Sidebar from '../components/Sidebar.js';
 
 const Assesment = () => {
   const [validated, setValidated] = useState(false);
@@ -25,7 +26,14 @@ const Assesment = () => {
     scoreVisibility: false
   });
 
+  const [secureUrl, setSecureUrl] = useState('');
+  const handleImageUrlUpdate = (url) => {
+    setSecureUrl(url); // Update secureUrl state
+    setFormData({ ...formData, imgLink: url }); // Update imgLink state in the formData
+  };
+  
 //activity radiobox
+
   
   const handleCreditVisibilityChange = (e) => {
     setFormData({ ...formData, creditVisibility: e.target.checked });
@@ -91,7 +99,7 @@ const Assesment = () => {
     // If the answer is not valid, show an alert and return without adding the question
 
 
-      axios.post('http://localhost:3030/questions', formQuestions)
+      axios.post('http://localhost:3031/questions', formQuestions)
         .then((response) => {
           alert('Data stored successfully');
           console.log('Response:', response.data);
@@ -104,6 +112,13 @@ const Assesment = () => {
         });
   }
 
+  const handleRemoveQuestion = (questionIdToRemove) => {
+    // Filter out the question with the provided ID
+    const updatedQuestions = questions.filter(question => question.id !== questionIdToRemove);
+    // Update the state with the filtered questions
+    setQuestions(updatedQuestions);
+  };
+  
   const generateAccordionItems = () => {
     return questions.map(question => (
       <CAccordionItem key={question.id}>
@@ -194,7 +209,10 @@ const Assesment = () => {
               floatingLabel="Answer"
               placeholder="Enter answer"
             />
-            <button onClick={handleNewQuestion}>Add</button>
+            <CContainer>
+            <CButton color='primary' onClick={handleNewQuestion}>Add</CButton>
+            <CButton style={{marginLeft:10}} color='danger' onClick={() => handleRemoveQuestion(question.id)}>Remove</CButton> 
+            </CContainer>
           </CContainer>
         </CAccordionBody>
       </CAccordionItem>
@@ -217,7 +235,7 @@ const Assesment = () => {
 
 
     // Post data using axios
-    axios.post('http://localhost:3030/activities', formData)
+    axios.post('http://localhost:3031/activities', formData)
       .then((response) => {
         alert('Data stored successfully');
         console.log('Response:', response.data);
@@ -295,7 +313,7 @@ const handleSettingsSubmit = (event) => {
   }
 
   // Post data using axios
-  axios.post('http://localhost:3030/settings', settingsData)
+  axios.post('http://localhost:3031/settings', settingsData)
     .then((response) => {
       alert('Settings updated successfully');
       console.log('Response:', response.data);
@@ -324,13 +342,17 @@ const handleSettingsSubmit = (event) => {
 
   
   return (
-    <div>
+    <div style={{margin:0, padding:0,display:'flex'}}>
+      <CContainer style={{padding:0,width:'fit-content'}}>
+        <Sidebar />
+      </CContainer>
+      <CContainer >
       <h1>Assesment</h1>
-      <CContainer>
-      <CNav variant="tabs">
+      <CNav variant="tabs" style={{margin:0, padding:0}}>
             <CNavItem>
               <CNavLink
                 href="#"
+                style={{color:'black'}}
                 active={activeKey === 1}
                 onClick={() => setActiveKey(1)}
               >
@@ -340,6 +362,7 @@ const handleSettingsSubmit = (event) => {
             <CNavItem>
               <CNavLink
                 href="#"
+                style={{color:'black'}}
                 active={activeKey === 2}
                 onClick={() => setActiveKey(2)}
               >
@@ -349,6 +372,7 @@ const handleSettingsSubmit = (event) => {
             <CNavItem>
               <CNavLink
                 href="#"
+                style={{color:'black'}}
                 active={activeKey === 3}
                 onClick={() => setActiveKey(3)}
               >
@@ -357,7 +381,7 @@ const handleSettingsSubmit = (event) => {
             </CNavItem>
 
           </CNav>
-          <CTabContent>
+          <CTabContent style={{backgroundColor:'white'}}>
             <CTabPane visible={activeKey === 1}>
             <CContainer>
             <CForm onSubmit={handleSubmit}>
@@ -388,7 +412,7 @@ const handleSettingsSubmit = (event) => {
         />
       </CContainer>
     </CContainer>
-    <label htmlFor="Font-size">Font-size:</label>
+    
     <TextBox />
     <CContainer className='tab-content-container'>
       <CContainer className='section'>
@@ -426,6 +450,14 @@ const handleSettingsSubmit = (event) => {
           <option>Medium</option>
           <option>Large</option>
         </CFormSelect>
+      </CContainer>
+      <CContainer className="section">
+        <label htmlFor="Total_time">Total time :</label>
+        <CInputGroup>
+          <CInputGroupText>Hours and minutes</CInputGroupText>
+          <CFormInput type="number" aria-label="Hours" required />
+          <CFormInput type="number" aria-label="Minutes" required />
+        </CInputGroup>
       </CContainer>
       <CContainer className="section">
         <label htmlFor="Credits">Credits :</label>
@@ -467,16 +499,9 @@ const handleSettingsSubmit = (event) => {
                           checked={formData.scoreVisibility}
         />
       </CContainer>
-      <CContainer className="section">
-        <label htmlFor="Total_time">Total time :</label>
-        <CInputGroup>
-          <CInputGroupText>Hours and minutes</CInputGroupText>
-          <CFormInput type="number" aria-label="Hours" required />
-          <CFormInput type="number" aria-label="Minutes" required />
-        </CInputGroup>
-      </CContainer>
+      <FileInput onImageUrlUpdate={handleImageUrlUpdate} />
     </CContainer>
-    <div className="btn-space">
+    <div className="btn-space" style={{textAlign:'right'}}>
       <CButton type="submit" color="primary">Next</CButton>
     </div>
   </CContainer>
@@ -583,10 +608,12 @@ const handleSettingsSubmit = (event) => {
         />
       </CInputGroup>
     </CContainer>
+      <CContainer style={{textAlign:'right'}}>
 
     <CButton type="submit" color="primary">
       Next
     </CButton>
+      </CContainer>
   </CContainer>
 </CForm>
 
@@ -594,10 +621,16 @@ const handleSettingsSubmit = (event) => {
 
             </CTabPane>
             <CTabPane visible={activeKey === 3}>
+              <CContainer style={{marginTop:15, }}>
+
             <CAccordion>
         {generateAccordionItems()}
       </CAccordion>
+              </CContainer>
+      <CContainer style={{textAlign:'center',padding:'1rem'}}>
+
       <CButton color="primary" onClick={handleAddQuestion}>Add Question</CButton>
+      </CContainer>
             </CTabPane>
           </CTabContent>
       </CContainer>

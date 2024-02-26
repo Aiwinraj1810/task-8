@@ -19,6 +19,21 @@
       "minutes": "",
       "creditVisibility": false,
       "scoreVisibility": true
+    },
+    {
+      "id": "5ae1",
+      "assessmentId": "12",
+      "assessmentCode": "1",
+      "category": "Medium",
+      "trainingContent": "Medium",
+      "certificate": "Small",
+      "credits": "1231",
+      "score": "weqwe",
+      "hours": "",
+      "minutes": "",
+      "creditVisibility": false,
+      "scoreVisibility": true,
+      "imgLink": "https://res.cloudinary.com/dur23cis9/image/upload/v1708846075/o5kl0ygjsqaxxumjivgb.jpg"
     }
   ],
   "settings": [
@@ -135,21 +150,21 @@
       "id": "6989"
     },
     {
-      "id": 2,
+      "id": "2",
       "question": "",
       "questionType": "",
       "score": "",
       "answer": ""
     },
     {
-      "id": 3,
+      "id": "3",
       "question": "",
       "questionType": "",
       "score": "",
       "answer": ""
     },
     {
-      "id": 4,
+      "id": "4",
       "question": "",
       "questionType": "",
       "score": "",
@@ -216,6 +231,17 @@
       "option4": "",
       "score": "5",
       "answer": "newAns"
+    },
+    {
+      "id": "9d46",
+      "question": "Capital of France",
+      "questionType": "Fill in the blanks",
+      "option1": "",
+      "option2": "",
+      "option3": "",
+      "option4": "",
+      "score": "2",
+      "answer": "Paris"
     }
   ]
 }

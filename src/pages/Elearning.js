@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { CFormInput, CFormSelect, CInputGroup, CInputGroupText, CFormSwitch, CButton, CContainer, CNav,CNavItem,CTabPane,CTabContent,CNavLink } from '@coreui/react';
-import UploadMedia from '../components/UploadMedia.js';
 import ContentDetails from '../components/ContentDetails.js';
 import axios from 'axios';
 import '../styles/formDesign.css';
-
+import Sidebar from '../components/Sidebar.js';
 import DragandDrop from '../components/DragandDrop.js';
 import FileInput from '../components/FileInput.js';
 
@@ -24,12 +23,15 @@ const Elearning = () => {
     minutes: '',
     creditVisibility: false,
     scoreReview: false,
-    imgLink : ''
+    imgLink : '',
+    imageUrl : ''
   });
 
   // const handleImageUrlUpdate = (url) => {
   //   setFormData({ ...formData, imgLink: url }); // Update imgLink state in the parent component
   // };
+
+
 
   const [secureUrl, setSecureUrl] = useState('');
 
@@ -37,7 +39,7 @@ const Elearning = () => {
     setSecureUrl(url); // Update secureUrl state
     setFormData({ ...formData, imgLink: url }); // Update imgLink state in the formData
   };
-
+  
 
   let nextId = localStorage.getItem('nextId') || 0;
   
@@ -111,12 +113,18 @@ const Elearning = () => {
 
   return (
     
-        <>
+        <div style={{margin:0, padding:0,display:'flex'}}>
+        <CContainer style={{padding:0,width:'fit-content'}}>
+        <Sidebar />
+      </CContainer>
+        <CContainer >
         <h1>E-learn</h1>
+
           <CNav variant="tabs">
             <CNavItem>
               <CNavLink
                 href="#"
+                style={{color:'black'}}
                 active={activeKey === 1}
                 onClick={() => setActiveKey(1)}
               >
@@ -126,6 +134,7 @@ const Elearning = () => {
             <CNavItem>
               <CNavLink
                 href="#"
+                style={{color:'black'}}
                 active={activeKey === 2}
                 onClick={() => setActiveKey(2)}
               >
@@ -134,7 +143,7 @@ const Elearning = () => {
             </CNavItem>
 
           </CNav>
-          <CTabContent>
+          <CTabContent style={{backgroundColor:'white', borderRadius:10, marginTop:10}}>
             <CTabPane visible={activeKey === 1}>
             <form onSubmit={handleSubmit} noValidate validated={validated}>
 
@@ -266,8 +275,9 @@ const Elearning = () => {
                   <CTabContent>
                     <CTabPane visible={subTab===1}>
 
-                      <DragandDrop/>
-                      <FileInput onImageUrlUpdate={handleImageUrlUpdate} />
+                      <DragandDrop /> 
+                        
+                      
                       
                     </CTabPane>
                     <CTabPane visible={subTab===2}>
@@ -279,7 +289,8 @@ const Elearning = () => {
             </CTabPane>
             
           </CTabContent>
-        </>
+        </CContainer>
+        </div>
       )
     }
     

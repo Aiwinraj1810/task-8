@@ -1,30 +1,45 @@
 import React from 'react'
-import { CSidebar, CSidebarNav, CNavItem,CNavTitle,CNavGroup,CSidebarToggler, CSidebarBrand, CBadge} from '@coreui/react'
+import { CSidebar, CSidebarNav, CNavItem,CNavTitle,CNavGroup,CSidebarToggler, CSidebarBrand, CBadge, CSidebarFooter, CContainer} from '@coreui/react'
+import { Link } from 'react-router-dom'
 
 const Sidebar = () => {
   return (
-    <div>
+    <div style={{margin:0,padding:0}}>
       <CSidebar>
-  <CSidebarBrand>Sidebar Brand</CSidebarBrand>
+        
+  <CSidebarBrand><Link style={{textDecoration:'none', color:'white', cursor:'pointer'}} to='/'>Learning library</Link></CSidebarBrand>
   <CSidebarNav>
-    <CNavTitle>Nav Title</CNavTitle>
+    <CNavTitle>Menu</CNavTitle>
+    <CContainer style={{display:'flex', flexDirection:'column', justifyContent:'space-between',height:'100lvh'}}>
+
+    <CContainer style={{display:'flex', flexDirection:'column'}}>
+    <Link Link style={{textDecoration:'none'}} to='/elearning'>
     <CNavItem href="#">
       
-      Nav item
+      E-learn
     </CNavItem>
+    </Link>
+    <Link Link style={{textDecoration:'none'}} to='/classroom'>
     <CNavItem href="#">
       
-      With badge
-      <CBadge color="primary ms-auto">NEW</CBadge>
+      Classroom
     </CNavItem>
-    <CNavGroup toggler="Nav dropdown">
-      <CNavItem href="#">
-       
-      </CNavItem>
-      <CNavItem href="#">
-       
-      </CNavItem>
-    </CNavGroup>
+    </Link>
+    <Link Link style={{textDecoration:'none'}} to='/assesment'>
+    <CNavItem href="#">
+      
+      Assesment
+    </CNavItem>
+    </Link>
+    </CContainer>
+
+    <CContainer style={{display:'flex', flexDirection:'column'}}>
+
+    <CNavItem href="#">
+      Copyrights
+    </CNavItem>
+    </CContainer>
+    </CContainer>
   </CSidebarNav>
   <CSidebarToggler />
 </CSidebar>

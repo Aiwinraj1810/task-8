@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {  CButton, CContainer, } from '@coreui/react';
+import {  CButton, CContainer, CFormInput, } from '@coreui/react';
 const FileInput = ({ onImageUrlUpdate }) => {
   const [image, setImage] = useState('');
   const [previewUrl, setPreviewUrl] = useState('');
@@ -55,7 +55,7 @@ const FileInput = ({ onImageUrlUpdate }) => {
 
   return (
     <CContainer>
-      <input type='file' onChange={handleFileChange} />
+      <CFormInput type='file' onChange={handleFileChange} />
       {previewUrl && (
         <CContainer style={{ marginTop: 10 }}>
           <img src={previewUrl} alt='preview' style={{ width: 100 }} />
@@ -64,7 +64,7 @@ const FileInput = ({ onImageUrlUpdate }) => {
         </CContainer>
       )}
       {secureUrl && (
-        <input style={{ display: 'none' }} type='text' value={secureUrl} disabled />
+        <CFormInput style={{ display: 'none' }} type='text' value={secureUrl} disabled />
       )}
     </CContainer>
   );

@@ -1,0 +1,96 @@
+  const generateAccordionItems = () => {
+    return questions.map(question => (
+      <CAccordionItem key={question.id}>
+        <CAccordionHeader>{`Question: ${question.id}`}</CAccordionHeader>
+        <CAccordionBody>
+          <CContainer>
+            <span>Question : </span>
+            <CFormInput
+  type="text"
+  value={question.question}
+  onChange={e => {
+    handleQuestionChange(question.id, 'question', e.target.value);
+    setFormQuestions({...formQuestions, question: e.target.value}); // Update formData to formsQuestion and assessmentId to question
+  }}
+  floatingClassName="mb-3"
+  floatingLabel="Question"
+  placeholder="Question"
+/>
+            <span>Question type : </span>
+            <CFormSelect
+              value={question.questionType}
+              onChange={e => {
+                handleQuestionChange(question.id, 'questionType', e.target.value);
+                setFormQuestions(prevState => ({
+                  ...prevState,
+                  questionType: e.target.value,
+                  // Reset options to empty strings if questionType is "Fill in the blanks"
+                  option1: e.target.value === 'Fill in the blanks' ? '' : prevState.option1,
+                  option2: e.target.value === 'Fill in the blanks' ? '' : prevState.option2,
+                  option3: e.target.value === 'Fill in the blanks' ? '' : prevState.option3,
+                  option4: e.target.value === 'Fill in the blanks' ? '' : prevState.option4
+                }));
+              }}
+            >
+              <option>Select categories</option>
+              <option>MCQ</option>
+              <option>Fill in the blanks</option>
+            </CFormSelect>
+
+            {question.questionType === 'MCQ' && (
+              <div>
+                <span>Options:</span>
+                <CFormInput
+                  type="text"
+                  value={question.option1}
+                  onChange={e => {handleOptionChange(question.id, 'option1', e.target.value);setFormQuestions({...formQuestions, option1 : e.target.value})}}
+                  placeholder="Option 1"
+                />
+                <CFormInput
+                  type="text"
+                  value={question.option2}
+                  onChange={e => {handleOptionChange(question.id, 'option2', e.target.value);setFormQuestions({...formQuestions, option2 : e.target.value})}}
+                  placeholder="Option 2"
+                />
+                <CFormInput
+                  type="text"
+                  value={question.option3}
+                  onChange={e => {handleOptionChange(question.id, 'option3', e.target.value);setFormQuestions({...formQuestions, option3 : e.target.value})}}
+                  placeholder="Option 3"
+                />
+                <CFormInput
+                  type="text"
+                  value={question.option4}
+                  onChange={e => {handleOptionChange(question.id, 'option4', e.target.value);setFormQuestions({...formQuestions, option4 : e.target.value})}}
+                  placeholder="Option 4"
+                />
+              </div>
+            )}
+
+
+            <span>Score per question : </span>
+            <CFormInput
+              type="text"
+              value={question.score}
+              onChange={e => {handleQuestionChange(question.id, 'score', e.target.value);
+              setFormQuestions({...formQuestions, score: e.target.value})}}
+              floatingClassName="mb-3"
+              floatingLabel="Score"
+              placeholder="Enter Score per question"
+            />
+            <span>Answer :  </span>
+            <CFormInput
+              type="text"
+              value={question.answer}
+              onChange={e =>{ handleQuestionChange(question.id, 'answer', e.target.value);
+              setFormQuestions({...formQuestions, answer: e.target.value})}}
+              floatingClassName="mb-3"
+              floatingLabel="Answer"
+              placeholder="Enter answer"
+            />
+            <button onClick={handleNewQuestion}>Add</button>
+          </CContainer>
+        </CAccordionBody>
+      </CAccordionItem>
+    ));
+  };
